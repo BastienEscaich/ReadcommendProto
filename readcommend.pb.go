@@ -10,7 +10,6 @@ import (
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -347,6 +346,42 @@ func (x *Size) GetMaxPages() uint32 {
 	return 0
 }
 
+type GetGenresParams struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetGenresParams) Reset() {
+	*x = GetGenresParams{}
+	mi := &file_readcommend_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetGenresParams) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetGenresParams) ProtoMessage() {}
+
+func (x *GetGenresParams) ProtoReflect() protoreflect.Message {
+	mi := &file_readcommend_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetGenresParams.ProtoReflect.Descriptor instead.
+func (*GetGenresParams) Descriptor() ([]byte, []int) {
+	return file_readcommend_proto_rawDescGZIP(), []int{5}
+}
+
 type GetGenresResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Genre         []*Genre               `protobuf:"bytes,1,rep,name=genre,proto3" json:"genre,omitempty"`
@@ -356,7 +391,7 @@ type GetGenresResponse struct {
 
 func (x *GetGenresResponse) Reset() {
 	*x = GetGenresResponse{}
-	mi := &file_readcommend_proto_msgTypes[5]
+	mi := &file_readcommend_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -368,7 +403,7 @@ func (x *GetGenresResponse) String() string {
 func (*GetGenresResponse) ProtoMessage() {}
 
 func (x *GetGenresResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_readcommend_proto_msgTypes[5]
+	mi := &file_readcommend_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -381,7 +416,7 @@ func (x *GetGenresResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetGenresResponse.ProtoReflect.Descriptor instead.
 func (*GetGenresResponse) Descriptor() ([]byte, []int) {
-	return file_readcommend_proto_rawDescGZIP(), []int{5}
+	return file_readcommend_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetGenresResponse) GetGenre() []*Genre {
@@ -389,6 +424,42 @@ func (x *GetGenresResponse) GetGenre() []*Genre {
 		return x.Genre
 	}
 	return nil
+}
+
+type GetErasParams struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetErasParams) Reset() {
+	*x = GetErasParams{}
+	mi := &file_readcommend_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetErasParams) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetErasParams) ProtoMessage() {}
+
+func (x *GetErasParams) ProtoReflect() protoreflect.Message {
+	mi := &file_readcommend_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetErasParams.ProtoReflect.Descriptor instead.
+func (*GetErasParams) Descriptor() ([]byte, []int) {
+	return file_readcommend_proto_rawDescGZIP(), []int{7}
 }
 
 type GetErasResponse struct {
@@ -400,7 +471,7 @@ type GetErasResponse struct {
 
 func (x *GetErasResponse) Reset() {
 	*x = GetErasResponse{}
-	mi := &file_readcommend_proto_msgTypes[6]
+	mi := &file_readcommend_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -412,7 +483,7 @@ func (x *GetErasResponse) String() string {
 func (*GetErasResponse) ProtoMessage() {}
 
 func (x *GetErasResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_readcommend_proto_msgTypes[6]
+	mi := &file_readcommend_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -425,7 +496,7 @@ func (x *GetErasResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetErasResponse.ProtoReflect.Descriptor instead.
 func (*GetErasResponse) Descriptor() ([]byte, []int) {
-	return file_readcommend_proto_rawDescGZIP(), []int{6}
+	return file_readcommend_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetErasResponse) GetEras() []*Era {
@@ -433,6 +504,42 @@ func (x *GetErasResponse) GetEras() []*Era {
 		return x.Eras
 	}
 	return nil
+}
+
+type GetSizesParams struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetSizesParams) Reset() {
+	*x = GetSizesParams{}
+	mi := &file_readcommend_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetSizesParams) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetSizesParams) ProtoMessage() {}
+
+func (x *GetSizesParams) ProtoReflect() protoreflect.Message {
+	mi := &file_readcommend_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetSizesParams.ProtoReflect.Descriptor instead.
+func (*GetSizesParams) Descriptor() ([]byte, []int) {
+	return file_readcommend_proto_rawDescGZIP(), []int{9}
 }
 
 type GetSizesResponse struct {
@@ -444,7 +551,7 @@ type GetSizesResponse struct {
 
 func (x *GetSizesResponse) Reset() {
 	*x = GetSizesResponse{}
-	mi := &file_readcommend_proto_msgTypes[7]
+	mi := &file_readcommend_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -456,7 +563,7 @@ func (x *GetSizesResponse) String() string {
 func (*GetSizesResponse) ProtoMessage() {}
 
 func (x *GetSizesResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_readcommend_proto_msgTypes[7]
+	mi := &file_readcommend_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -469,7 +576,7 @@ func (x *GetSizesResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetSizesResponse.ProtoReflect.Descriptor instead.
 func (*GetSizesResponse) Descriptor() ([]byte, []int) {
-	return file_readcommend_proto_rawDescGZIP(), []int{7}
+	return file_readcommend_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GetSizesResponse) GetSizes() []*Size {
@@ -477,6 +584,42 @@ func (x *GetSizesResponse) GetSizes() []*Size {
 		return x.Sizes
 	}
 	return nil
+}
+
+type GetAuthorsParams struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAuthorsParams) Reset() {
+	*x = GetAuthorsParams{}
+	mi := &file_readcommend_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAuthorsParams) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAuthorsParams) ProtoMessage() {}
+
+func (x *GetAuthorsParams) ProtoReflect() protoreflect.Message {
+	mi := &file_readcommend_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAuthorsParams.ProtoReflect.Descriptor instead.
+func (*GetAuthorsParams) Descriptor() ([]byte, []int) {
+	return file_readcommend_proto_rawDescGZIP(), []int{11}
 }
 
 type GetAuthorsResponse struct {
@@ -488,7 +631,7 @@ type GetAuthorsResponse struct {
 
 func (x *GetAuthorsResponse) Reset() {
 	*x = GetAuthorsResponse{}
-	mi := &file_readcommend_proto_msgTypes[8]
+	mi := &file_readcommend_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -500,7 +643,7 @@ func (x *GetAuthorsResponse) String() string {
 func (*GetAuthorsResponse) ProtoMessage() {}
 
 func (x *GetAuthorsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_readcommend_proto_msgTypes[8]
+	mi := &file_readcommend_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -513,7 +656,7 @@ func (x *GetAuthorsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAuthorsResponse.ProtoReflect.Descriptor instead.
 func (*GetAuthorsResponse) Descriptor() ([]byte, []int) {
-	return file_readcommend_proto_rawDescGZIP(), []int{8}
+	return file_readcommend_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GetAuthorsResponse) GetAuthors() []*Author {
@@ -525,20 +668,20 @@ func (x *GetAuthorsResponse) GetAuthors() []*Author {
 
 type GetBooksParams struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Authors       string                 `protobuf:"bytes,1,opt,name=authors,proto3" json:"authors,omitempty"`
-	Genres        string                 `protobuf:"bytes,2,opt,name=genres,proto3" json:"genres,omitempty"`
-	MinPages      uint32                 `protobuf:"varint,3,opt,name=minPages,json=min-pages,proto3" json:"minPages,omitempty"`
-	MaxPages      uint32                 `protobuf:"varint,4,opt,name=maxPages,json=max-pages,proto3" json:"maxPages,omitempty"`
-	MinYear       uint32                 `protobuf:"varint,5,opt,name=minYear,json=min-year,proto3" json:"minYear,omitempty"`
-	MaxYear       uint32                 `protobuf:"varint,6,opt,name=maxYear,json=max-year,proto3" json:"maxYear,omitempty"`
-	Limit         uint32                 `protobuf:"varint,7,opt,name=limit,proto3" json:"limit,omitempty"`
+	Authors       *string                `protobuf:"bytes,1,opt,name=authors,proto3,oneof" json:"authors,omitempty"`
+	Genres        *string                `protobuf:"bytes,2,opt,name=genres,proto3,oneof" json:"genres,omitempty"`
+	MinPages      *uint32                `protobuf:"varint,3,opt,name=minPages,json=min-pages,proto3,oneof" json:"minPages,omitempty"`
+	MaxPages      *uint32                `protobuf:"varint,4,opt,name=maxPages,json=max-pages,proto3,oneof" json:"maxPages,omitempty"`
+	MinYear       *uint32                `protobuf:"varint,5,opt,name=minYear,json=min-year,proto3,oneof" json:"minYear,omitempty"`
+	MaxYear       *uint32                `protobuf:"varint,6,opt,name=maxYear,json=max-year,proto3,oneof" json:"maxYear,omitempty"`
+	Limit         *uint32                `protobuf:"varint,7,opt,name=limit,proto3,oneof" json:"limit,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetBooksParams) Reset() {
 	*x = GetBooksParams{}
-	mi := &file_readcommend_proto_msgTypes[9]
+	mi := &file_readcommend_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -550,7 +693,7 @@ func (x *GetBooksParams) String() string {
 func (*GetBooksParams) ProtoMessage() {}
 
 func (x *GetBooksParams) ProtoReflect() protoreflect.Message {
-	mi := &file_readcommend_proto_msgTypes[9]
+	mi := &file_readcommend_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -563,54 +706,54 @@ func (x *GetBooksParams) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBooksParams.ProtoReflect.Descriptor instead.
 func (*GetBooksParams) Descriptor() ([]byte, []int) {
-	return file_readcommend_proto_rawDescGZIP(), []int{9}
+	return file_readcommend_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GetBooksParams) GetAuthors() string {
-	if x != nil {
-		return x.Authors
+	if x != nil && x.Authors != nil {
+		return *x.Authors
 	}
 	return ""
 }
 
 func (x *GetBooksParams) GetGenres() string {
-	if x != nil {
-		return x.Genres
+	if x != nil && x.Genres != nil {
+		return *x.Genres
 	}
 	return ""
 }
 
 func (x *GetBooksParams) GetMinPages() uint32 {
-	if x != nil {
-		return x.MinPages
+	if x != nil && x.MinPages != nil {
+		return *x.MinPages
 	}
 	return 0
 }
 
 func (x *GetBooksParams) GetMaxPages() uint32 {
-	if x != nil {
-		return x.MaxPages
+	if x != nil && x.MaxPages != nil {
+		return *x.MaxPages
 	}
 	return 0
 }
 
 func (x *GetBooksParams) GetMinYear() uint32 {
-	if x != nil {
-		return x.MinYear
+	if x != nil && x.MinYear != nil {
+		return *x.MinYear
 	}
 	return 0
 }
 
 func (x *GetBooksParams) GetMaxYear() uint32 {
-	if x != nil {
-		return x.MaxYear
+	if x != nil && x.MaxYear != nil {
+		return *x.MaxYear
 	}
 	return 0
 }
 
 func (x *GetBooksParams) GetLimit() uint32 {
-	if x != nil {
-		return x.Limit
+	if x != nil && x.Limit != nil {
+		return *x.Limit
 	}
 	return 0
 }
@@ -624,7 +767,7 @@ type GetBooksResponse struct {
 
 func (x *GetBooksResponse) Reset() {
 	*x = GetBooksResponse{}
-	mi := &file_readcommend_proto_msgTypes[10]
+	mi := &file_readcommend_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -636,7 +779,7 @@ func (x *GetBooksResponse) String() string {
 func (*GetBooksResponse) ProtoMessage() {}
 
 func (x *GetBooksResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_readcommend_proto_msgTypes[10]
+	mi := &file_readcommend_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -649,7 +792,7 @@ func (x *GetBooksResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBooksResponse.ProtoReflect.Descriptor instead.
 func (*GetBooksResponse) Descriptor() ([]byte, []int) {
-	return file_readcommend_proto_rawDescGZIP(), []int{10}
+	return file_readcommend_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *GetBooksResponse) GetBooks() []*Book {
@@ -663,7 +806,7 @@ var File_readcommend_proto protoreflect.FileDescriptor
 
 const file_readcommend_proto_rawDesc = "" +
 	"\n" +
-	"\x11readcommend.proto\x12\vreadcommend\x1a\x1cgoogle/api/annotations.proto\x1a\x1bgoogle/protobuf/empty.proto\"\x80\x01\n" +
+	"\x11readcommend.proto\x12\vreadcommend\x1a\x1cgoogle/api/annotations.proto\"\x80\x01\n" +
 	"\x04Book\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x12$\n" +
@@ -686,32 +829,46 @@ const file_readcommend_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x12\x1a\n" +
 	"\bminPages\x18\x03 \x01(\rR\bminPages\x12\x1a\n" +
-	"\bmaxPages\x18\x04 \x01(\rR\bmaxPages\"=\n" +
+	"\bmaxPages\x18\x04 \x01(\rR\bmaxPages\"\x11\n" +
+	"\x0fGetGenresParams\"=\n" +
 	"\x11GetGenresResponse\x12(\n" +
-	"\x05genre\x18\x01 \x03(\v2\x12.readcommend.GenreR\x05genre\"7\n" +
+	"\x05genre\x18\x01 \x03(\v2\x12.readcommend.GenreR\x05genre\"\x0f\n" +
+	"\rGetErasParams\"7\n" +
 	"\x0fGetErasResponse\x12$\n" +
-	"\x04eras\x18\x01 \x03(\v2\x10.readcommend.EraR\x04eras\";\n" +
+	"\x04eras\x18\x01 \x03(\v2\x10.readcommend.EraR\x04eras\"\x10\n" +
+	"\x0eGetSizesParams\";\n" +
 	"\x10GetSizesResponse\x12'\n" +
-	"\x05sizes\x18\x01 \x03(\v2\x11.readcommend.SizeR\x05sizes\"C\n" +
+	"\x05sizes\x18\x01 \x03(\v2\x11.readcommend.SizeR\x05sizes\"\x12\n" +
+	"\x10GetAuthorsParams\"C\n" +
 	"\x12GetAuthorsResponse\x12-\n" +
-	"\aauthors\x18\x01 \x03(\v2\x13.readcommend.AuthorR\aauthors\"\xc8\x01\n" +
-	"\x0eGetBooksParams\x12\x18\n" +
-	"\aauthors\x18\x01 \x01(\tR\aauthors\x12\x16\n" +
-	"\x06genres\x18\x02 \x01(\tR\x06genres\x12\x1b\n" +
-	"\bminPages\x18\x03 \x01(\rR\tmin-pages\x12\x1b\n" +
-	"\bmaxPages\x18\x04 \x01(\rR\tmax-pages\x12\x19\n" +
-	"\aminYear\x18\x05 \x01(\rR\bmin-year\x12\x19\n" +
-	"\amaxYear\x18\x06 \x01(\rR\bmax-year\x12\x14\n" +
-	"\x05limit\x18\a \x01(\rR\x05limit\";\n" +
-	"\x10GetBooksResponse\x12'\n" +
-	"\x05books\x18\x01 \x03(\v2\x11.readcommend.BookR\x05books2\xe1\x03\n" +
-	"\x12ReadCommendService\x12]\n" +
-	"\bGetBooks\x12\x1b.readcommend.GetBooksParams\x1a\x1d.readcommend.GetBooksResponse\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/api/v1/books\x12[\n" +
-	"\tGetGenres\x12\x16.google.protobuf.Empty\x1a\x1e.readcommend.GetGenresResponse\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/api/v1/genres\x12^\n" +
+	"\aauthors\x18\x01 \x03(\v2\x13.readcommend.AuthorR\aauthors\"\xbe\x02\n" +
+	"\x0eGetBooksParams\x12\x1d\n" +
+	"\aauthors\x18\x01 \x01(\tH\x00R\aauthors\x88\x01\x01\x12\x1b\n" +
+	"\x06genres\x18\x02 \x01(\tH\x01R\x06genres\x88\x01\x01\x12 \n" +
+	"\bminPages\x18\x03 \x01(\rH\x02R\tmin-pages\x88\x01\x01\x12 \n" +
+	"\bmaxPages\x18\x04 \x01(\rH\x03R\tmax-pages\x88\x01\x01\x12\x1e\n" +
+	"\aminYear\x18\x05 \x01(\rH\x04R\bmin-year\x88\x01\x01\x12\x1e\n" +
+	"\amaxYear\x18\x06 \x01(\rH\x05R\bmax-year\x88\x01\x01\x12\x19\n" +
+	"\x05limit\x18\a \x01(\rH\x06R\x05limit\x88\x01\x01B\n" +
 	"\n" +
-	"GetAuthors\x12\x16.google.protobuf.Empty\x1a\x1f.readcommend.GetAuthorsResponse\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/api/v1/authors\x12X\n" +
-	"\bGetSizes\x12\x16.google.protobuf.Empty\x1a\x1d.readcommend.GetSizesResponse\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/api/v1/sizes\x12U\n" +
-	"\aGetEras\x12\x16.google.protobuf.Empty\x1a\x1c.readcommend.GetErasResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\f/api/v1/erasB'Z%github.com/BastianEscaich/readcommendb\x06proto3"
+	"\b_authorsB\t\n" +
+	"\a_genresB\v\n" +
+	"\t_minPagesB\v\n" +
+	"\t_maxPagesB\n" +
+	"\n" +
+	"\b_minYearB\n" +
+	"\n" +
+	"\b_maxYearB\b\n" +
+	"\x06_limit\";\n" +
+	"\x10GetBooksResponse\x12'\n" +
+	"\x05books\x18\x01 \x03(\v2\x11.readcommend.BookR\x05books2\xf7\x03\n" +
+	"\x12ReadCommendService\x12]\n" +
+	"\bGetBooks\x12\x1b.readcommend.GetBooksParams\x1a\x1d.readcommend.GetBooksResponse\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/api/v1/books\x12a\n" +
+	"\tGetGenres\x12\x1c.readcommend.GetGenresParams\x1a\x1e.readcommend.GetGenresResponse\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/api/v1/genres\x12e\n" +
+	"\n" +
+	"GetAuthors\x12\x1d.readcommend.GetAuthorsParams\x1a\x1f.readcommend.GetAuthorsResponse\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/api/v1/authors\x12]\n" +
+	"\bGetSizes\x12\x1b.readcommend.GetSizesParams\x1a\x1d.readcommend.GetSizesResponse\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/api/v1/sizes\x12Y\n" +
+	"\aGetEras\x12\x1a.readcommend.GetErasParams\x1a\x1c.readcommend.GetErasResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\f/api/v1/erasB'Z%github.com/BastianEscaich/readcommendb\x06proto3"
 
 var (
 	file_readcommend_proto_rawDescOnce sync.Once
@@ -725,20 +882,23 @@ func file_readcommend_proto_rawDescGZIP() []byte {
 	return file_readcommend_proto_rawDescData
 }
 
-var file_readcommend_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
+var file_readcommend_proto_msgTypes = make([]protoimpl.MessageInfo, 15)
 var file_readcommend_proto_goTypes = []any{
 	(*Book)(nil),               // 0: readcommend.Book
 	(*Author)(nil),             // 1: readcommend.Author
 	(*Genre)(nil),              // 2: readcommend.Genre
 	(*Era)(nil),                // 3: readcommend.Era
 	(*Size)(nil),               // 4: readcommend.Size
-	(*GetGenresResponse)(nil),  // 5: readcommend.GetGenresResponse
-	(*GetErasResponse)(nil),    // 6: readcommend.GetErasResponse
-	(*GetSizesResponse)(nil),   // 7: readcommend.GetSizesResponse
-	(*GetAuthorsResponse)(nil), // 8: readcommend.GetAuthorsResponse
-	(*GetBooksParams)(nil),     // 9: readcommend.GetBooksParams
-	(*GetBooksResponse)(nil),   // 10: readcommend.GetBooksResponse
-	(*emptypb.Empty)(nil),      // 11: google.protobuf.Empty
+	(*GetGenresParams)(nil),    // 5: readcommend.GetGenresParams
+	(*GetGenresResponse)(nil),  // 6: readcommend.GetGenresResponse
+	(*GetErasParams)(nil),      // 7: readcommend.GetErasParams
+	(*GetErasResponse)(nil),    // 8: readcommend.GetErasResponse
+	(*GetSizesParams)(nil),     // 9: readcommend.GetSizesParams
+	(*GetSizesResponse)(nil),   // 10: readcommend.GetSizesResponse
+	(*GetAuthorsParams)(nil),   // 11: readcommend.GetAuthorsParams
+	(*GetAuthorsResponse)(nil), // 12: readcommend.GetAuthorsResponse
+	(*GetBooksParams)(nil),     // 13: readcommend.GetBooksParams
+	(*GetBooksResponse)(nil),   // 14: readcommend.GetBooksResponse
 }
 var file_readcommend_proto_depIdxs = []int32{
 	2,  // 0: readcommend.GetGenresResponse.genre:type_name -> readcommend.Genre
@@ -746,16 +906,16 @@ var file_readcommend_proto_depIdxs = []int32{
 	4,  // 2: readcommend.GetSizesResponse.sizes:type_name -> readcommend.Size
 	1,  // 3: readcommend.GetAuthorsResponse.authors:type_name -> readcommend.Author
 	0,  // 4: readcommend.GetBooksResponse.books:type_name -> readcommend.Book
-	9,  // 5: readcommend.ReadCommendService.GetBooks:input_type -> readcommend.GetBooksParams
-	11, // 6: readcommend.ReadCommendService.GetGenres:input_type -> google.protobuf.Empty
-	11, // 7: readcommend.ReadCommendService.GetAuthors:input_type -> google.protobuf.Empty
-	11, // 8: readcommend.ReadCommendService.GetSizes:input_type -> google.protobuf.Empty
-	11, // 9: readcommend.ReadCommendService.GetEras:input_type -> google.protobuf.Empty
-	10, // 10: readcommend.ReadCommendService.GetBooks:output_type -> readcommend.GetBooksResponse
-	5,  // 11: readcommend.ReadCommendService.GetGenres:output_type -> readcommend.GetGenresResponse
-	8,  // 12: readcommend.ReadCommendService.GetAuthors:output_type -> readcommend.GetAuthorsResponse
-	7,  // 13: readcommend.ReadCommendService.GetSizes:output_type -> readcommend.GetSizesResponse
-	6,  // 14: readcommend.ReadCommendService.GetEras:output_type -> readcommend.GetErasResponse
+	13, // 5: readcommend.ReadCommendService.GetBooks:input_type -> readcommend.GetBooksParams
+	5,  // 6: readcommend.ReadCommendService.GetGenres:input_type -> readcommend.GetGenresParams
+	11, // 7: readcommend.ReadCommendService.GetAuthors:input_type -> readcommend.GetAuthorsParams
+	9,  // 8: readcommend.ReadCommendService.GetSizes:input_type -> readcommend.GetSizesParams
+	7,  // 9: readcommend.ReadCommendService.GetEras:input_type -> readcommend.GetErasParams
+	14, // 10: readcommend.ReadCommendService.GetBooks:output_type -> readcommend.GetBooksResponse
+	6,  // 11: readcommend.ReadCommendService.GetGenres:output_type -> readcommend.GetGenresResponse
+	12, // 12: readcommend.ReadCommendService.GetAuthors:output_type -> readcommend.GetAuthorsResponse
+	10, // 13: readcommend.ReadCommendService.GetSizes:output_type -> readcommend.GetSizesResponse
+	8,  // 14: readcommend.ReadCommendService.GetEras:output_type -> readcommend.GetErasResponse
 	10, // [10:15] is the sub-list for method output_type
 	5,  // [5:10] is the sub-list for method input_type
 	5,  // [5:5] is the sub-list for extension type_name
@@ -768,13 +928,14 @@ func file_readcommend_proto_init() {
 	if File_readcommend_proto != nil {
 		return
 	}
+	file_readcommend_proto_msgTypes[13].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_readcommend_proto_rawDesc), len(file_readcommend_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   11,
+			NumMessages:   15,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

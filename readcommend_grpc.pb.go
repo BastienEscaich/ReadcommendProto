@@ -11,7 +11,6 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-	emptypb "google.golang.org/protobuf/types/known/emptypb"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -32,10 +31,10 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ReadCommendServiceClient interface {
 	GetBooks(ctx context.Context, in *GetBooksParams, opts ...grpc.CallOption) (*GetBooksResponse, error)
-	GetGenres(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetGenresResponse, error)
-	GetAuthors(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetAuthorsResponse, error)
-	GetSizes(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetSizesResponse, error)
-	GetEras(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetErasResponse, error)
+	GetGenres(ctx context.Context, in *GetGenresParams, opts ...grpc.CallOption) (*GetGenresResponse, error)
+	GetAuthors(ctx context.Context, in *GetAuthorsParams, opts ...grpc.CallOption) (*GetAuthorsResponse, error)
+	GetSizes(ctx context.Context, in *GetSizesParams, opts ...grpc.CallOption) (*GetSizesResponse, error)
+	GetEras(ctx context.Context, in *GetErasParams, opts ...grpc.CallOption) (*GetErasResponse, error)
 }
 
 type readCommendServiceClient struct {
@@ -56,7 +55,7 @@ func (c *readCommendServiceClient) GetBooks(ctx context.Context, in *GetBooksPar
 	return out, nil
 }
 
-func (c *readCommendServiceClient) GetGenres(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetGenresResponse, error) {
+func (c *readCommendServiceClient) GetGenres(ctx context.Context, in *GetGenresParams, opts ...grpc.CallOption) (*GetGenresResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetGenresResponse)
 	err := c.cc.Invoke(ctx, ReadCommendService_GetGenres_FullMethodName, in, out, cOpts...)
@@ -66,7 +65,7 @@ func (c *readCommendServiceClient) GetGenres(ctx context.Context, in *emptypb.Em
 	return out, nil
 }
 
-func (c *readCommendServiceClient) GetAuthors(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetAuthorsResponse, error) {
+func (c *readCommendServiceClient) GetAuthors(ctx context.Context, in *GetAuthorsParams, opts ...grpc.CallOption) (*GetAuthorsResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetAuthorsResponse)
 	err := c.cc.Invoke(ctx, ReadCommendService_GetAuthors_FullMethodName, in, out, cOpts...)
@@ -76,7 +75,7 @@ func (c *readCommendServiceClient) GetAuthors(ctx context.Context, in *emptypb.E
 	return out, nil
 }
 
-func (c *readCommendServiceClient) GetSizes(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetSizesResponse, error) {
+func (c *readCommendServiceClient) GetSizes(ctx context.Context, in *GetSizesParams, opts ...grpc.CallOption) (*GetSizesResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetSizesResponse)
 	err := c.cc.Invoke(ctx, ReadCommendService_GetSizes_FullMethodName, in, out, cOpts...)
@@ -86,7 +85,7 @@ func (c *readCommendServiceClient) GetSizes(ctx context.Context, in *emptypb.Emp
 	return out, nil
 }
 
-func (c *readCommendServiceClient) GetEras(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetErasResponse, error) {
+func (c *readCommendServiceClient) GetEras(ctx context.Context, in *GetErasParams, opts ...grpc.CallOption) (*GetErasResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
 	out := new(GetErasResponse)
 	err := c.cc.Invoke(ctx, ReadCommendService_GetEras_FullMethodName, in, out, cOpts...)
@@ -101,10 +100,10 @@ func (c *readCommendServiceClient) GetEras(ctx context.Context, in *emptypb.Empt
 // for forward compatibility.
 type ReadCommendServiceServer interface {
 	GetBooks(context.Context, *GetBooksParams) (*GetBooksResponse, error)
-	GetGenres(context.Context, *emptypb.Empty) (*GetGenresResponse, error)
-	GetAuthors(context.Context, *emptypb.Empty) (*GetAuthorsResponse, error)
-	GetSizes(context.Context, *emptypb.Empty) (*GetSizesResponse, error)
-	GetEras(context.Context, *emptypb.Empty) (*GetErasResponse, error)
+	GetGenres(context.Context, *GetGenresParams) (*GetGenresResponse, error)
+	GetAuthors(context.Context, *GetAuthorsParams) (*GetAuthorsResponse, error)
+	GetSizes(context.Context, *GetSizesParams) (*GetSizesResponse, error)
+	GetEras(context.Context, *GetErasParams) (*GetErasResponse, error)
 	mustEmbedUnimplementedReadCommendServiceServer()
 }
 
@@ -118,16 +117,16 @@ type UnimplementedReadCommendServiceServer struct{}
 func (UnimplementedReadCommendServiceServer) GetBooks(context.Context, *GetBooksParams) (*GetBooksResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetBooks not implemented")
 }
-func (UnimplementedReadCommendServiceServer) GetGenres(context.Context, *emptypb.Empty) (*GetGenresResponse, error) {
+func (UnimplementedReadCommendServiceServer) GetGenres(context.Context, *GetGenresParams) (*GetGenresResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetGenres not implemented")
 }
-func (UnimplementedReadCommendServiceServer) GetAuthors(context.Context, *emptypb.Empty) (*GetAuthorsResponse, error) {
+func (UnimplementedReadCommendServiceServer) GetAuthors(context.Context, *GetAuthorsParams) (*GetAuthorsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAuthors not implemented")
 }
-func (UnimplementedReadCommendServiceServer) GetSizes(context.Context, *emptypb.Empty) (*GetSizesResponse, error) {
+func (UnimplementedReadCommendServiceServer) GetSizes(context.Context, *GetSizesParams) (*GetSizesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetSizes not implemented")
 }
-func (UnimplementedReadCommendServiceServer) GetEras(context.Context, *emptypb.Empty) (*GetErasResponse, error) {
+func (UnimplementedReadCommendServiceServer) GetEras(context.Context, *GetErasParams) (*GetErasResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetEras not implemented")
 }
 func (UnimplementedReadCommendServiceServer) mustEmbedUnimplementedReadCommendServiceServer() {}
@@ -170,7 +169,7 @@ func _ReadCommendService_GetBooks_Handler(srv interface{}, ctx context.Context, 
 }
 
 func _ReadCommendService_GetGenres_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(emptypb.Empty)
+	in := new(GetGenresParams)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -182,13 +181,13 @@ func _ReadCommendService_GetGenres_Handler(srv interface{}, ctx context.Context,
 		FullMethod: ReadCommendService_GetGenres_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadCommendServiceServer).GetGenres(ctx, req.(*emptypb.Empty))
+		return srv.(ReadCommendServiceServer).GetGenres(ctx, req.(*GetGenresParams))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ReadCommendService_GetAuthors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(emptypb.Empty)
+	in := new(GetAuthorsParams)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -200,13 +199,13 @@ func _ReadCommendService_GetAuthors_Handler(srv interface{}, ctx context.Context
 		FullMethod: ReadCommendService_GetAuthors_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadCommendServiceServer).GetAuthors(ctx, req.(*emptypb.Empty))
+		return srv.(ReadCommendServiceServer).GetAuthors(ctx, req.(*GetAuthorsParams))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ReadCommendService_GetSizes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(emptypb.Empty)
+	in := new(GetSizesParams)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -218,13 +217,13 @@ func _ReadCommendService_GetSizes_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: ReadCommendService_GetSizes_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadCommendServiceServer).GetSizes(ctx, req.(*emptypb.Empty))
+		return srv.(ReadCommendServiceServer).GetSizes(ctx, req.(*GetSizesParams))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ReadCommendService_GetEras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(emptypb.Empty)
+	in := new(GetErasParams)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -236,7 +235,7 @@ func _ReadCommendService_GetEras_Handler(srv interface{}, ctx context.Context, d
 		FullMethod: ReadCommendService_GetEras_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadCommendServiceServer).GetEras(ctx, req.(*emptypb.Empty))
+		return srv.(ReadCommendServiceServer).GetEras(ctx, req.(*GetErasParams))
 	}
 	return interceptor(ctx, in, info, handler)
 }
