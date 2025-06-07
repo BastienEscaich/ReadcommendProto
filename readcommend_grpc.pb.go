@@ -30,11 +30,11 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ReadCommendServiceClient interface {
-	GetBooks(ctx context.Context, in *GetBooksParams, opts ...grpc.CallOption) (*GetBooksResponse, error)
-	GetGenres(ctx context.Context, in *GetGenresParams, opts ...grpc.CallOption) (*GetGenresResponse, error)
-	GetAuthors(ctx context.Context, in *GetAuthorsParams, opts ...grpc.CallOption) (*GetAuthorsResponse, error)
-	GetSizes(ctx context.Context, in *GetSizesParams, opts ...grpc.CallOption) (*GetSizesResponse, error)
-	GetEras(ctx context.Context, in *GetErasParams, opts ...grpc.CallOption) (*GetErasResponse, error)
+	GetBooks(ctx context.Context, in *GetBooksParams, opts ...grpc.CallOption) (grpc.ServerStreamingClient[Book], error)
+	GetGenres(ctx context.Context, in *GetGenresParams, opts ...grpc.CallOption) (grpc.ServerStreamingClient[Genre], error)
+	GetAuthors(ctx context.Context, in *GetAuthorsParams, opts ...grpc.CallOption) (grpc.ServerStreamingClient[Author], error)
+	GetSizes(ctx context.Context, in *GetSizesParams, opts ...grpc.CallOption) (grpc.ServerStreamingClient[Size], error)
+	GetEras(ctx context.Context, in *GetErasParams, opts ...grpc.CallOption) (grpc.ServerStreamingClient[Era], error)
 }
 
 type readCommendServiceClient struct {
@@ -45,65 +45,110 @@ func NewReadCommendServiceClient(cc grpc.ClientConnInterface) ReadCommendService
 	return &readCommendServiceClient{cc}
 }
 
-func (c *readCommendServiceClient) GetBooks(ctx context.Context, in *GetBooksParams, opts ...grpc.CallOption) (*GetBooksResponse, error) {
+func (c *readCommendServiceClient) GetBooks(ctx context.Context, in *GetBooksParams, opts ...grpc.CallOption) (grpc.ServerStreamingClient[Book], error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetBooksResponse)
-	err := c.cc.Invoke(ctx, ReadCommendService_GetBooks_FullMethodName, in, out, cOpts...)
+	stream, err := c.cc.NewStream(ctx, &ReadCommendService_ServiceDesc.Streams[0], ReadCommendService_GetBooks_FullMethodName, cOpts...)
 	if err != nil {
 		return nil, err
 	}
-	return out, nil
+	x := &grpc.GenericClientStream[GetBooksParams, Book]{ClientStream: stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
 }
 
-func (c *readCommendServiceClient) GetGenres(ctx context.Context, in *GetGenresParams, opts ...grpc.CallOption) (*GetGenresResponse, error) {
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type ReadCommendService_GetBooksClient = grpc.ServerStreamingClient[Book]
+
+func (c *readCommendServiceClient) GetGenres(ctx context.Context, in *GetGenresParams, opts ...grpc.CallOption) (grpc.ServerStreamingClient[Genre], error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetGenresResponse)
-	err := c.cc.Invoke(ctx, ReadCommendService_GetGenres_FullMethodName, in, out, cOpts...)
+	stream, err := c.cc.NewStream(ctx, &ReadCommendService_ServiceDesc.Streams[1], ReadCommendService_GetGenres_FullMethodName, cOpts...)
 	if err != nil {
 		return nil, err
 	}
-	return out, nil
+	x := &grpc.GenericClientStream[GetGenresParams, Genre]{ClientStream: stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
 }
 
-func (c *readCommendServiceClient) GetAuthors(ctx context.Context, in *GetAuthorsParams, opts ...grpc.CallOption) (*GetAuthorsResponse, error) {
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type ReadCommendService_GetGenresClient = grpc.ServerStreamingClient[Genre]
+
+func (c *readCommendServiceClient) GetAuthors(ctx context.Context, in *GetAuthorsParams, opts ...grpc.CallOption) (grpc.ServerStreamingClient[Author], error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAuthorsResponse)
-	err := c.cc.Invoke(ctx, ReadCommendService_GetAuthors_FullMethodName, in, out, cOpts...)
+	stream, err := c.cc.NewStream(ctx, &ReadCommendService_ServiceDesc.Streams[2], ReadCommendService_GetAuthors_FullMethodName, cOpts...)
 	if err != nil {
 		return nil, err
 	}
-	return out, nil
+	x := &grpc.GenericClientStream[GetAuthorsParams, Author]{ClientStream: stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
 }
 
-func (c *readCommendServiceClient) GetSizes(ctx context.Context, in *GetSizesParams, opts ...grpc.CallOption) (*GetSizesResponse, error) {
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type ReadCommendService_GetAuthorsClient = grpc.ServerStreamingClient[Author]
+
+func (c *readCommendServiceClient) GetSizes(ctx context.Context, in *GetSizesParams, opts ...grpc.CallOption) (grpc.ServerStreamingClient[Size], error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetSizesResponse)
-	err := c.cc.Invoke(ctx, ReadCommendService_GetSizes_FullMethodName, in, out, cOpts...)
+	stream, err := c.cc.NewStream(ctx, &ReadCommendService_ServiceDesc.Streams[3], ReadCommendService_GetSizes_FullMethodName, cOpts...)
 	if err != nil {
 		return nil, err
 	}
-	return out, nil
+	x := &grpc.GenericClientStream[GetSizesParams, Size]{ClientStream: stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
 }
 
-func (c *readCommendServiceClient) GetEras(ctx context.Context, in *GetErasParams, opts ...grpc.CallOption) (*GetErasResponse, error) {
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type ReadCommendService_GetSizesClient = grpc.ServerStreamingClient[Size]
+
+func (c *readCommendServiceClient) GetEras(ctx context.Context, in *GetErasParams, opts ...grpc.CallOption) (grpc.ServerStreamingClient[Era], error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetErasResponse)
-	err := c.cc.Invoke(ctx, ReadCommendService_GetEras_FullMethodName, in, out, cOpts...)
+	stream, err := c.cc.NewStream(ctx, &ReadCommendService_ServiceDesc.Streams[4], ReadCommendService_GetEras_FullMethodName, cOpts...)
 	if err != nil {
 		return nil, err
 	}
-	return out, nil
+	x := &grpc.GenericClientStream[GetErasParams, Era]{ClientStream: stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
 }
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type ReadCommendService_GetErasClient = grpc.ServerStreamingClient[Era]
 
 // ReadCommendServiceServer is the server API for ReadCommendService service.
 // All implementations must embed UnimplementedReadCommendServiceServer
 // for forward compatibility.
 type ReadCommendServiceServer interface {
-	GetBooks(context.Context, *GetBooksParams) (*GetBooksResponse, error)
-	GetGenres(context.Context, *GetGenresParams) (*GetGenresResponse, error)
-	GetAuthors(context.Context, *GetAuthorsParams) (*GetAuthorsResponse, error)
-	GetSizes(context.Context, *GetSizesParams) (*GetSizesResponse, error)
-	GetEras(context.Context, *GetErasParams) (*GetErasResponse, error)
+	GetBooks(*GetBooksParams, grpc.ServerStreamingServer[Book]) error
+	GetGenres(*GetGenresParams, grpc.ServerStreamingServer[Genre]) error
+	GetAuthors(*GetAuthorsParams, grpc.ServerStreamingServer[Author]) error
+	GetSizes(*GetSizesParams, grpc.ServerStreamingServer[Size]) error
+	GetEras(*GetErasParams, grpc.ServerStreamingServer[Era]) error
 	mustEmbedUnimplementedReadCommendServiceServer()
 }
 
@@ -114,20 +159,20 @@ type ReadCommendServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedReadCommendServiceServer struct{}
 
-func (UnimplementedReadCommendServiceServer) GetBooks(context.Context, *GetBooksParams) (*GetBooksResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetBooks not implemented")
+func (UnimplementedReadCommendServiceServer) GetBooks(*GetBooksParams, grpc.ServerStreamingServer[Book]) error {
+	return status.Errorf(codes.Unimplemented, "method GetBooks not implemented")
 }
-func (UnimplementedReadCommendServiceServer) GetGenres(context.Context, *GetGenresParams) (*GetGenresResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetGenres not implemented")
+func (UnimplementedReadCommendServiceServer) GetGenres(*GetGenresParams, grpc.ServerStreamingServer[Genre]) error {
+	return status.Errorf(codes.Unimplemented, "method GetGenres not implemented")
 }
-func (UnimplementedReadCommendServiceServer) GetAuthors(context.Context, *GetAuthorsParams) (*GetAuthorsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetAuthors not implemented")
+func (UnimplementedReadCommendServiceServer) GetAuthors(*GetAuthorsParams, grpc.ServerStreamingServer[Author]) error {
+	return status.Errorf(codes.Unimplemented, "method GetAuthors not implemented")
 }
-func (UnimplementedReadCommendServiceServer) GetSizes(context.Context, *GetSizesParams) (*GetSizesResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetSizes not implemented")
+func (UnimplementedReadCommendServiceServer) GetSizes(*GetSizesParams, grpc.ServerStreamingServer[Size]) error {
+	return status.Errorf(codes.Unimplemented, "method GetSizes not implemented")
 }
-func (UnimplementedReadCommendServiceServer) GetEras(context.Context, *GetErasParams) (*GetErasResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetEras not implemented")
+func (UnimplementedReadCommendServiceServer) GetEras(*GetErasParams, grpc.ServerStreamingServer[Era]) error {
+	return status.Errorf(codes.Unimplemented, "method GetEras not implemented")
 }
 func (UnimplementedReadCommendServiceServer) mustEmbedUnimplementedReadCommendServiceServer() {}
 func (UnimplementedReadCommendServiceServer) testEmbeddedByValue()                            {}
@@ -150,95 +195,60 @@ func RegisterReadCommendServiceServer(s grpc.ServiceRegistrar, srv ReadCommendSe
 	s.RegisterService(&ReadCommendService_ServiceDesc, srv)
 }
 
-func _ReadCommendService_GetBooks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetBooksParams)
-	if err := dec(in); err != nil {
-		return nil, err
+func _ReadCommendService_GetBooks_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(GetBooksParams)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
 	}
-	if interceptor == nil {
-		return srv.(ReadCommendServiceServer).GetBooks(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadCommendService_GetBooks_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadCommendServiceServer).GetBooks(ctx, req.(*GetBooksParams))
-	}
-	return interceptor(ctx, in, info, handler)
+	return srv.(ReadCommendServiceServer).GetBooks(m, &grpc.GenericServerStream[GetBooksParams, Book]{ServerStream: stream})
 }
 
-func _ReadCommendService_GetGenres_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetGenresParams)
-	if err := dec(in); err != nil {
-		return nil, err
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type ReadCommendService_GetBooksServer = grpc.ServerStreamingServer[Book]
+
+func _ReadCommendService_GetGenres_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(GetGenresParams)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
 	}
-	if interceptor == nil {
-		return srv.(ReadCommendServiceServer).GetGenres(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadCommendService_GetGenres_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadCommendServiceServer).GetGenres(ctx, req.(*GetGenresParams))
-	}
-	return interceptor(ctx, in, info, handler)
+	return srv.(ReadCommendServiceServer).GetGenres(m, &grpc.GenericServerStream[GetGenresParams, Genre]{ServerStream: stream})
 }
 
-func _ReadCommendService_GetAuthors_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAuthorsParams)
-	if err := dec(in); err != nil {
-		return nil, err
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type ReadCommendService_GetGenresServer = grpc.ServerStreamingServer[Genre]
+
+func _ReadCommendService_GetAuthors_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(GetAuthorsParams)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
 	}
-	if interceptor == nil {
-		return srv.(ReadCommendServiceServer).GetAuthors(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadCommendService_GetAuthors_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadCommendServiceServer).GetAuthors(ctx, req.(*GetAuthorsParams))
-	}
-	return interceptor(ctx, in, info, handler)
+	return srv.(ReadCommendServiceServer).GetAuthors(m, &grpc.GenericServerStream[GetAuthorsParams, Author]{ServerStream: stream})
 }
 
-func _ReadCommendService_GetSizes_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetSizesParams)
-	if err := dec(in); err != nil {
-		return nil, err
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type ReadCommendService_GetAuthorsServer = grpc.ServerStreamingServer[Author]
+
+func _ReadCommendService_GetSizes_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(GetSizesParams)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
 	}
-	if interceptor == nil {
-		return srv.(ReadCommendServiceServer).GetSizes(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadCommendService_GetSizes_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadCommendServiceServer).GetSizes(ctx, req.(*GetSizesParams))
-	}
-	return interceptor(ctx, in, info, handler)
+	return srv.(ReadCommendServiceServer).GetSizes(m, &grpc.GenericServerStream[GetSizesParams, Size]{ServerStream: stream})
 }
 
-func _ReadCommendService_GetEras_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetErasParams)
-	if err := dec(in); err != nil {
-		return nil, err
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type ReadCommendService_GetSizesServer = grpc.ServerStreamingServer[Size]
+
+func _ReadCommendService_GetEras_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(GetErasParams)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
 	}
-	if interceptor == nil {
-		return srv.(ReadCommendServiceServer).GetEras(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReadCommendService_GetEras_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReadCommendServiceServer).GetEras(ctx, req.(*GetErasParams))
-	}
-	return interceptor(ctx, in, info, handler)
+	return srv.(ReadCommendServiceServer).GetEras(m, &grpc.GenericServerStream[GetErasParams, Era]{ServerStream: stream})
 }
+
+// This type alias is provided for backwards compatibility with existing code that references the prior non-generic stream type by name.
+type ReadCommendService_GetErasServer = grpc.ServerStreamingServer[Era]
 
 // ReadCommendService_ServiceDesc is the grpc.ServiceDesc for ReadCommendService service.
 // It's only intended for direct use with grpc.RegisterService,
@@ -246,28 +256,33 @@ func _ReadCommendService_GetEras_Handler(srv interface{}, ctx context.Context, d
 var ReadCommendService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "readcommend.ReadCommendService",
 	HandlerType: (*ReadCommendServiceServer)(nil),
-	Methods: []grpc.MethodDesc{
+	Methods:     []grpc.MethodDesc{},
+	Streams: []grpc.StreamDesc{
 		{
-			MethodName: "GetBooks",
-			Handler:    _ReadCommendService_GetBooks_Handler,
+			StreamName:    "GetBooks",
+			Handler:       _ReadCommendService_GetBooks_Handler,
+			ServerStreams: true,
 		},
 		{
-			MethodName: "GetGenres",
-			Handler:    _ReadCommendService_GetGenres_Handler,
+			StreamName:    "GetGenres",
+			Handler:       _ReadCommendService_GetGenres_Handler,
+			ServerStreams: true,
 		},
 		{
-			MethodName: "GetAuthors",
-			Handler:    _ReadCommendService_GetAuthors_Handler,
+			StreamName:    "GetAuthors",
+			Handler:       _ReadCommendService_GetAuthors_Handler,
+			ServerStreams: true,
 		},
 		{
-			MethodName: "GetSizes",
-			Handler:    _ReadCommendService_GetSizes_Handler,
+			StreamName:    "GetSizes",
+			Handler:       _ReadCommendService_GetSizes_Handler,
+			ServerStreams: true,
 		},
 		{
-			MethodName: "GetEras",
-			Handler:    _ReadCommendService_GetEras_Handler,
+			StreamName:    "GetEras",
+			Handler:       _ReadCommendService_GetEras_Handler,
+			ServerStreams: true,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
 	Metadata: "readcommend.proto",
 }

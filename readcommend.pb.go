@@ -861,14 +861,14 @@ const file_readcommend_proto_rawDesc = "" +
 	"\b_maxYearB\b\n" +
 	"\x06_limit\";\n" +
 	"\x10GetBooksResponse\x12'\n" +
-	"\x05books\x18\x01 \x03(\v2\x11.readcommend.BookR\x05books2\xf7\x03\n" +
-	"\x12ReadCommendService\x12]\n" +
-	"\bGetBooks\x12\x1b.readcommend.GetBooksParams\x1a\x1d.readcommend.GetBooksResponse\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/api/v1/books\x12a\n" +
-	"\tGetGenres\x12\x1c.readcommend.GetGenresParams\x1a\x1e.readcommend.GetGenresResponse\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/api/v1/genres\x12e\n" +
+	"\x05books\x18\x01 \x03(\v2\x11.readcommend.BookR\x05books2\xc5\x03\n" +
+	"\x12ReadCommendService\x12S\n" +
+	"\bGetBooks\x12\x1b.readcommend.GetBooksParams\x1a\x11.readcommend.Book\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/api/v1/books0\x01\x12W\n" +
+	"\tGetGenres\x12\x1c.readcommend.GetGenresParams\x1a\x12.readcommend.Genre\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/api/v1/genres0\x01\x12[\n" +
 	"\n" +
-	"GetAuthors\x12\x1d.readcommend.GetAuthorsParams\x1a\x1f.readcommend.GetAuthorsResponse\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/api/v1/authors\x12]\n" +
-	"\bGetSizes\x12\x1b.readcommend.GetSizesParams\x1a\x1d.readcommend.GetSizesResponse\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/api/v1/sizes\x12Y\n" +
-	"\aGetEras\x12\x1a.readcommend.GetErasParams\x1a\x1c.readcommend.GetErasResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\f/api/v1/erasB'Z%github.com/BastianEscaich/readcommendb\x06proto3"
+	"GetAuthors\x12\x1d.readcommend.GetAuthorsParams\x1a\x13.readcommend.Author\"\x17\x82\xd3\xe4\x93\x02\x11\x12\x0f/api/v1/authors0\x01\x12S\n" +
+	"\bGetSizes\x12\x1b.readcommend.GetSizesParams\x1a\x11.readcommend.Size\"\x15\x82\xd3\xe4\x93\x02\x0f\x12\r/api/v1/sizes0\x01\x12O\n" +
+	"\aGetEras\x12\x1a.readcommend.GetErasParams\x1a\x10.readcommend.Era\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\f/api/v1/eras0\x01B'Z%github.com/BastianEscaich/readcommendb\x06proto3"
 
 var (
 	file_readcommend_proto_rawDescOnce sync.Once
@@ -911,11 +911,11 @@ var file_readcommend_proto_depIdxs = []int32{
 	11, // 7: readcommend.ReadCommendService.GetAuthors:input_type -> readcommend.GetAuthorsParams
 	9,  // 8: readcommend.ReadCommendService.GetSizes:input_type -> readcommend.GetSizesParams
 	7,  // 9: readcommend.ReadCommendService.GetEras:input_type -> readcommend.GetErasParams
-	14, // 10: readcommend.ReadCommendService.GetBooks:output_type -> readcommend.GetBooksResponse
-	6,  // 11: readcommend.ReadCommendService.GetGenres:output_type -> readcommend.GetGenresResponse
-	12, // 12: readcommend.ReadCommendService.GetAuthors:output_type -> readcommend.GetAuthorsResponse
-	10, // 13: readcommend.ReadCommendService.GetSizes:output_type -> readcommend.GetSizesResponse
-	8,  // 14: readcommend.ReadCommendService.GetEras:output_type -> readcommend.GetErasResponse
+	0,  // 10: readcommend.ReadCommendService.GetBooks:output_type -> readcommend.Book
+	2,  // 11: readcommend.ReadCommendService.GetGenres:output_type -> readcommend.Genre
+	1,  // 12: readcommend.ReadCommendService.GetAuthors:output_type -> readcommend.Author
+	4,  // 13: readcommend.ReadCommendService.GetSizes:output_type -> readcommend.Size
+	3,  // 14: readcommend.ReadCommendService.GetEras:output_type -> readcommend.Era
 	10, // [10:15] is the sub-list for method output_type
 	5,  // [5:10] is the sub-list for method input_type
 	5,  // [5:5] is the sub-list for extension type_name

@@ -37,7 +37,7 @@ var (
 
 var filter_ReadCommendService_GetBooks_0 = &utilities.DoubleArray{Encoding: map[string]int{}, Base: []int(nil), Check: []int(nil)}
 
-func request_ReadCommendService_GetBooks_0(ctx context.Context, marshaler runtime.Marshaler, client ReadCommendServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_ReadCommendService_GetBooks_0(ctx context.Context, marshaler runtime.Marshaler, client ReadCommendServiceClient, req *http.Request, pathParams map[string]string) (ReadCommendService_GetBooksClient, runtime.ServerMetadata, error) {
 	var (
 		protoReq GetBooksParams
 		metadata runtime.ServerMetadata
@@ -49,99 +49,88 @@ func request_ReadCommendService_GetBooks_0(ctx context.Context, marshaler runtim
 	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_ReadCommendService_GetBooks_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	msg, err := client.GetBooks(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
+	stream, err := client.GetBooks(ctx, &protoReq)
+	if err != nil {
+		return nil, metadata, err
+	}
+	header, err := stream.Header()
+	if err != nil {
+		return nil, metadata, err
+	}
+	metadata.HeaderMD = header
+	return stream, metadata, nil
 }
 
-func local_request_ReadCommendService_GetBooks_0(ctx context.Context, marshaler runtime.Marshaler, server ReadCommendServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var (
-		protoReq GetBooksParams
-		metadata runtime.ServerMetadata
-	)
-	if err := req.ParseForm(); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_ReadCommendService_GetBooks_0); err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
-	}
-	msg, err := server.GetBooks(ctx, &protoReq)
-	return msg, metadata, err
-}
-
-func request_ReadCommendService_GetGenres_0(ctx context.Context, marshaler runtime.Marshaler, client ReadCommendServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_ReadCommendService_GetGenres_0(ctx context.Context, marshaler runtime.Marshaler, client ReadCommendServiceClient, req *http.Request, pathParams map[string]string) (ReadCommendService_GetGenresClient, runtime.ServerMetadata, error) {
 	var (
 		protoReq GetGenresParams
 		metadata runtime.ServerMetadata
 	)
 	io.Copy(io.Discard, req.Body)
-	msg, err := client.GetGenres(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
+	stream, err := client.GetGenres(ctx, &protoReq)
+	if err != nil {
+		return nil, metadata, err
+	}
+	header, err := stream.Header()
+	if err != nil {
+		return nil, metadata, err
+	}
+	metadata.HeaderMD = header
+	return stream, metadata, nil
 }
 
-func local_request_ReadCommendService_GetGenres_0(ctx context.Context, marshaler runtime.Marshaler, server ReadCommendServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var (
-		protoReq GetGenresParams
-		metadata runtime.ServerMetadata
-	)
-	msg, err := server.GetGenres(ctx, &protoReq)
-	return msg, metadata, err
-}
-
-func request_ReadCommendService_GetAuthors_0(ctx context.Context, marshaler runtime.Marshaler, client ReadCommendServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_ReadCommendService_GetAuthors_0(ctx context.Context, marshaler runtime.Marshaler, client ReadCommendServiceClient, req *http.Request, pathParams map[string]string) (ReadCommendService_GetAuthorsClient, runtime.ServerMetadata, error) {
 	var (
 		protoReq GetAuthorsParams
 		metadata runtime.ServerMetadata
 	)
 	io.Copy(io.Discard, req.Body)
-	msg, err := client.GetAuthors(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
+	stream, err := client.GetAuthors(ctx, &protoReq)
+	if err != nil {
+		return nil, metadata, err
+	}
+	header, err := stream.Header()
+	if err != nil {
+		return nil, metadata, err
+	}
+	metadata.HeaderMD = header
+	return stream, metadata, nil
 }
 
-func local_request_ReadCommendService_GetAuthors_0(ctx context.Context, marshaler runtime.Marshaler, server ReadCommendServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var (
-		protoReq GetAuthorsParams
-		metadata runtime.ServerMetadata
-	)
-	msg, err := server.GetAuthors(ctx, &protoReq)
-	return msg, metadata, err
-}
-
-func request_ReadCommendService_GetSizes_0(ctx context.Context, marshaler runtime.Marshaler, client ReadCommendServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_ReadCommendService_GetSizes_0(ctx context.Context, marshaler runtime.Marshaler, client ReadCommendServiceClient, req *http.Request, pathParams map[string]string) (ReadCommendService_GetSizesClient, runtime.ServerMetadata, error) {
 	var (
 		protoReq GetSizesParams
 		metadata runtime.ServerMetadata
 	)
 	io.Copy(io.Discard, req.Body)
-	msg, err := client.GetSizes(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
+	stream, err := client.GetSizes(ctx, &protoReq)
+	if err != nil {
+		return nil, metadata, err
+	}
+	header, err := stream.Header()
+	if err != nil {
+		return nil, metadata, err
+	}
+	metadata.HeaderMD = header
+	return stream, metadata, nil
 }
 
-func local_request_ReadCommendService_GetSizes_0(ctx context.Context, marshaler runtime.Marshaler, server ReadCommendServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var (
-		protoReq GetSizesParams
-		metadata runtime.ServerMetadata
-	)
-	msg, err := server.GetSizes(ctx, &protoReq)
-	return msg, metadata, err
-}
-
-func request_ReadCommendService_GetEras_0(ctx context.Context, marshaler runtime.Marshaler, client ReadCommendServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_ReadCommendService_GetEras_0(ctx context.Context, marshaler runtime.Marshaler, client ReadCommendServiceClient, req *http.Request, pathParams map[string]string) (ReadCommendService_GetErasClient, runtime.ServerMetadata, error) {
 	var (
 		protoReq GetErasParams
 		metadata runtime.ServerMetadata
 	)
 	io.Copy(io.Discard, req.Body)
-	msg, err := client.GetEras(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
-	return msg, metadata, err
-}
-
-func local_request_ReadCommendService_GetEras_0(ctx context.Context, marshaler runtime.Marshaler, server ReadCommendServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var (
-		protoReq GetErasParams
-		metadata runtime.ServerMetadata
-	)
-	msg, err := server.GetEras(ctx, &protoReq)
-	return msg, metadata, err
+	stream, err := client.GetEras(ctx, &protoReq)
+	if err != nil {
+		return nil, metadata, err
+	}
+	header, err := stream.Header()
+	if err != nil {
+		return nil, metadata, err
+	}
+	metadata.HeaderMD = header
+	return stream, metadata, nil
 }
 
 // RegisterReadCommendServiceHandlerServer registers the http handlers for service ReadCommendService to "mux".
@@ -151,104 +140,38 @@ func local_request_ReadCommendService_GetEras_0(ctx context.Context, marshaler r
 // GRPC interceptors will not work for this type of registration. To use interceptors, you must use the "runtime.WithMiddlewares" option in the "runtime.NewServeMux" call.
 func RegisterReadCommendServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux, server ReadCommendServiceServer) error {
 	mux.Handle(http.MethodGet, pattern_ReadCommendService_GetBooks_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		var stream runtime.ServerTransportStream
-		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/readcommend.ReadCommendService/GetBooks", runtime.WithHTTPPathPattern("/api/v1/books"))
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_ReadCommendService_GetBooks_0(annotatedContext, inboundMarshaler, server, req, pathParams)
-		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
-		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
-		if err != nil {
-			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		forward_ReadCommendService_GetBooks_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		err := status.Error(codes.Unimplemented, "streaming calls are not yet supported in the in-process transport")
+		_, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+		return
 	})
+
 	mux.Handle(http.MethodGet, pattern_ReadCommendService_GetGenres_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		var stream runtime.ServerTransportStream
-		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/readcommend.ReadCommendService/GetGenres", runtime.WithHTTPPathPattern("/api/v1/genres"))
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_ReadCommendService_GetGenres_0(annotatedContext, inboundMarshaler, server, req, pathParams)
-		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
-		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
-		if err != nil {
-			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		forward_ReadCommendService_GetGenres_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		err := status.Error(codes.Unimplemented, "streaming calls are not yet supported in the in-process transport")
+		_, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+		return
 	})
+
 	mux.Handle(http.MethodGet, pattern_ReadCommendService_GetAuthors_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		var stream runtime.ServerTransportStream
-		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/readcommend.ReadCommendService/GetAuthors", runtime.WithHTTPPathPattern("/api/v1/authors"))
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_ReadCommendService_GetAuthors_0(annotatedContext, inboundMarshaler, server, req, pathParams)
-		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
-		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
-		if err != nil {
-			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		forward_ReadCommendService_GetAuthors_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		err := status.Error(codes.Unimplemented, "streaming calls are not yet supported in the in-process transport")
+		_, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+		return
 	})
+
 	mux.Handle(http.MethodGet, pattern_ReadCommendService_GetSizes_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		var stream runtime.ServerTransportStream
-		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/readcommend.ReadCommendService/GetSizes", runtime.WithHTTPPathPattern("/api/v1/sizes"))
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_ReadCommendService_GetSizes_0(annotatedContext, inboundMarshaler, server, req, pathParams)
-		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
-		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
-		if err != nil {
-			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		forward_ReadCommendService_GetSizes_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		err := status.Error(codes.Unimplemented, "streaming calls are not yet supported in the in-process transport")
+		_, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+		return
 	})
+
 	mux.Handle(http.MethodGet, pattern_ReadCommendService_GetEras_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
-		ctx, cancel := context.WithCancel(req.Context())
-		defer cancel()
-		var stream runtime.ServerTransportStream
-		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
-		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/readcommend.ReadCommendService/GetEras", runtime.WithHTTPPathPattern("/api/v1/eras"))
-		if err != nil {
-			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		resp, md, err := local_request_ReadCommendService_GetEras_0(annotatedContext, inboundMarshaler, server, req, pathParams)
-		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
-		annotatedContext = runtime.NewServerMetadataContext(annotatedContext, md)
-		if err != nil {
-			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
-			return
-		}
-		forward_ReadCommendService_GetEras_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		err := status.Error(codes.Unimplemented, "streaming calls are not yet supported in the in-process transport")
+		_, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+		return
 	})
 
 	return nil
@@ -305,7 +228,7 @@ func RegisterReadCommendServiceHandlerClient(ctx context.Context, mux *runtime.S
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		forward_ReadCommendService_GetBooks_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_ReadCommendService_GetBooks_0(annotatedContext, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
 	})
 	mux.Handle(http.MethodGet, pattern_ReadCommendService_GetGenres_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
@@ -322,7 +245,7 @@ func RegisterReadCommendServiceHandlerClient(ctx context.Context, mux *runtime.S
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		forward_ReadCommendService_GetGenres_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_ReadCommendService_GetGenres_0(annotatedContext, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
 	})
 	mux.Handle(http.MethodGet, pattern_ReadCommendService_GetAuthors_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
@@ -339,7 +262,7 @@ func RegisterReadCommendServiceHandlerClient(ctx context.Context, mux *runtime.S
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		forward_ReadCommendService_GetAuthors_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_ReadCommendService_GetAuthors_0(annotatedContext, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
 	})
 	mux.Handle(http.MethodGet, pattern_ReadCommendService_GetSizes_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
@@ -356,7 +279,7 @@ func RegisterReadCommendServiceHandlerClient(ctx context.Context, mux *runtime.S
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		forward_ReadCommendService_GetSizes_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_ReadCommendService_GetSizes_0(annotatedContext, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
 	})
 	mux.Handle(http.MethodGet, pattern_ReadCommendService_GetEras_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
@@ -373,7 +296,7 @@ func RegisterReadCommendServiceHandlerClient(ctx context.Context, mux *runtime.S
 			runtime.HTTPError(annotatedContext, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		forward_ReadCommendService_GetEras_0(annotatedContext, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_ReadCommendService_GetEras_0(annotatedContext, mux, outboundMarshaler, w, req, func() (proto.Message, error) { return resp.Recv() }, mux.GetForwardResponseOptions()...)
 	})
 	return nil
 }
@@ -387,9 +310,9 @@ var (
 )
 
 var (
-	forward_ReadCommendService_GetBooks_0   = runtime.ForwardResponseMessage
-	forward_ReadCommendService_GetGenres_0  = runtime.ForwardResponseMessage
-	forward_ReadCommendService_GetAuthors_0 = runtime.ForwardResponseMessage
-	forward_ReadCommendService_GetSizes_0   = runtime.ForwardResponseMessage
-	forward_ReadCommendService_GetEras_0    = runtime.ForwardResponseMessage
+	forward_ReadCommendService_GetBooks_0   = runtime.ForwardResponseStream
+	forward_ReadCommendService_GetGenres_0  = runtime.ForwardResponseStream
+	forward_ReadCommendService_GetAuthors_0 = runtime.ForwardResponseStream
+	forward_ReadCommendService_GetSizes_0   = runtime.ForwardResponseStream
+	forward_ReadCommendService_GetEras_0    = runtime.ForwardResponseStream
 )
